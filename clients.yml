@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: configclient
+  cloud:
+    consul:
+      port: 8500
+      host: localhost
+      discovery:
+        service-name: ${spring.application.name}
+        prefer-ip-address: true
