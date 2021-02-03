@@ -1,0 +1,36 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: users
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        service-name: ${spring.application.name}
+#设置连接和最大等待服务的时长 products:具体那个服务 feign默认为1秒
+feign:
+  client:
+    config:
+      #products.connectTimeout: 5000 设置具体那个服务服务
+      #products.readTimeout: 5000
+      default.connectTimeout: 5000  # 设置所有服务
+      default.readTimeout: 5000
+  #启用hystrix服务降级机制
+  hystrix:
+    enabled: true
+#设置feign日志信息,开启debug模式
+debug: true
+#配置日志级别
+logging:
+  level:
+    com.bohai.feignClient: debug
+
+
+
+#修改默认客户端的负载均衡策略 products:服务名 、com.netflix.loadbalancer.RandomRule：负责均衡策略的类名（顶层接口为IRule）
+#products:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
