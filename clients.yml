@@ -6,4 +6,4 @@ spring:
       discovery:
         service-name: ${spring.application.name}
         prefer-ip-address: true
-name: liangwang1        
+name: liangwang        
