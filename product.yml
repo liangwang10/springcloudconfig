@@ -1,0 +1,12 @@
+server:
+  port: 9998
+spring:
+  application:
+    name: products
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        service-name: ${spring.application.name}
