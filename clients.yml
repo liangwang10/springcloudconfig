@@ -6,4 +6,10 @@ spring:
       discovery:
         service-name: ${spring.application.name}
         prefer-ip-address: true
+  rabbitmq:
+    host: 192.168.112.134
+    port: 5672
+    username: admin
+    password: admin
+
 name: liangwang        
